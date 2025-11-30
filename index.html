@@ -27,56 +27,30 @@
       --white:#ffffff;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:Inter,Arial}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--white);font-family:Inter,Arial,system-ui}
     a{color:inherit;text-decoration:none}
-
-    nav{max-width:1100px;margin:0 auto;padding:20px;display:flex;justify-content:space-between}
+    nav{max-width:1100px;margin:0 auto;padding:20px;display:flex;justify-content:space-between;align-items:center}
     main{max-width:1100px;margin:0 auto;padding:20px}
-
-    header.hero{
-      margin:20px 0;
-      padding:50px 25px;
-      border-radius:16px;
-      background:linear-gradient(180deg,rgba(11,114,255,0.15),rgba(106,92,255,0.08));
-      position:relative;
-      overflow:hidden;
-    }
-
+    header.hero{margin:20px 0;padding:50px 25px;border-radius:16px;background:linear-gradient(180deg,rgba(11,114,255,0.15),rgba(106,92,255,0.08));position:relative;overflow:hidden}
     .hero-inner{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:center}
     h1{font-size:36px;margin:0 0 10px}
     p.lead{color:var(--muted);line-height:1.6;margin:0 0 20px}
-
-    .btn-primary{
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));
-      padding:12px 18px;border-radius:10px;font-weight:700;color:white;
-    }
-    .btn-ghost{
-      padding:10px 14px;border:1px solid rgba(255,255,255,0.08);
-      border-radius:10px;color:white;
-    }
-
-    .right-preview{
-      width:340px;min-width:240px;padding:16px;border-radius:14px;
-      background:rgba(255,255,255,0.03);backdrop-filter:blur(6px);
-    }
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:12px 18px;border-radius:10px;font-weight:700;color:white}
+    .btn-ghost{padding:10px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:10px;color:white}
+    .right-preview{width:340px;min-width:240px;padding:16px;border-radius:14px;background:rgba(255,255,255,0.03);backdrop-filter:blur(6px)}
     .meta{color:var(--muted);font-size:13px}
-
-    .service,.case{
-      background:var(--card);padding:16px;border-radius:12px;
-      border:1px solid rgba(255,255,255,0.04);
-    }
-
+    .service,.case{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
     footer{text-align:center;color:var(--muted);padding:30px 0;font-size:13px}
-
-    @media(max-width:900px){
-      h1{font-size:28px}
-      .hero-inner{flex-direction:column-reverse}
-      .right-preview{width:100%}
-    }
+    .bg-anim{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0.12}
+    .blob{position:absolute;border-radius:50%;filter:blur(60px);animation:float 12s ease-in-out infinite}
+    .b1{width:480px;height:480px;background:linear-gradient(180deg,var(--accent),var(--accent-2));left:-6%;top:-12%}
+    .b2{width:360px;height:360px;background:linear-gradient(180deg,rgba(106,92,255,0.8),rgba(11,114,255,0.6));right:-10%;bottom:-8%}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+    .sticky-wa{position:fixed;right:18px;bottom:18px;border-radius:50%;width:62px;height:62px;background:linear-gradient(180deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;z-index:9999;box-shadow:0 12px 30px rgba(10,10,20,0.5)}
+    @media(max-width:900px){h1{font-size:28px}.hero-inner{flex-direction:column-reverse}.right-preview{width:100%}.right-preview img{width:64px;height:64px;border-radius:12px}}
   </style>
 </head>
 <body>
-
   <nav>
     <div style="font-weight:700;font-size:18px">Dharmesh Annapure</div>
     <div style="display:flex;gap:12px">
@@ -86,96 +60,104 @@
   </nav>
 
   <main>
-
-  <header class="hero">
-    <div class="hero-inner">
-
-      <div>
-        <div style="background:rgba(255,255,255,0.05);padding:6px 12px;border-radius:20px;color:var(--muted);font-size:13px;display:inline-block;margin-bottom:12px">
-          AI Growth • Reels • Automations
-        </div>
-
-        <h1>Creator Growth + AI Automations — Reels, Brand Deals & DM Funnels</h1>
-        <p class="lead">
-          I help creators, brands & MSMEs scale with AI-assisted content, DM funnels and brand partnerships. Based in Mumbai.
-        </p>
-
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a class="btn-primary" href="https://wa.me/919136090098?text=Hi%20Dharmesh%2C%20I%20want%20a%20growth%20audit" target="_blank">Book ₹2,000 Audit</a>
-          <a class="btn-ghost" href="#contact">Send Message</a>
-        </div>
+    <header class="hero" role="banner" aria-label="Hero">
+      <div class="bg-anim" aria-hidden="true">
+        <div class="blob b1"></div>
+        <div class="blob b2" style="animation-duration:16s"></div>
       </div>
 
-      <!-- RIGHT PREVIEW WITH PHOTO -->
-      <aside class="right-preview">
-        <div style="display:flex;gap:14px;align-items:center">
-
-          <!-- Profile Image -->
-          <div style="position:relative">
-            <div style="width:76px;height:76px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 20px rgba(11,114,255,0.18)">
-              <img src="/assets/1764517251287.jpg?v=2"
-                   style="width:100%;height:100%;object-fit:cover;display:block" />
-            </div>
-
-            <!-- glow -->
-            <div style="position:absolute;left:-12px;top:-12px;width:100px;height:100px;border-radius:20px;
-                 filter:blur(22px);opacity:0.22;
-                 background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:-1">
-            </div>
+      <div class="hero-inner">
+        <div>
+          <div style="background:rgba(255,255,255,0.05);padding:6px 12px;border-radius:20px;color:var(--muted);font-size:13px;display:inline-block;margin-bottom:12px">
+            AI Growth • Reels • Automations
           </div>
 
-          <div>
-            <div style="font-weight:700">Dharmesh Annapure</div>
-            <div class="meta">Creator Growth & AI Automation — Mumbai</div>
-            <div class="meta" style="margin-top:6px">Managed creators, brands & AI projects</div>
-          </div>
+          <h1>Creator Growth + AI Automations — Reels, Brand Deals & DM Funnels</h1>
+          <p class="lead">I help creators, brands & MSMEs scale with AI-assisted content, DM funnels and brand partnerships. Based in Mumbai.</p>
 
+          <div style="display:flex;gap:12px;flex-wrap:wrap">
+            <a class="btn-primary" href="https://wa.me/919136090098?text=Hi%20Dharmesh%2C%20I%20want%20a%20growth%20audit" target="_blank">Book ₹2,000 Audit</a>
+            <a class="btn-ghost" href="#contact">Send Message</a>
+          </div>
         </div>
 
-        <hr style="margin:14px 0;border:0;border-top:1px solid rgba(255,255,255,0.08)" />
+        <!-- RIGHT PREVIEW WITH PHOTO -->
+        <aside class="right-preview" aria-hidden="true">
+          <div style="display:flex;gap:14px;align-items:center">
+            <!-- Profile Image -->
+            <div style="position:relative;flex-shrink:0">
+              <div style="width:76px;height:76px;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 20px rgba(11,114,255,0.18)">
+                <!-- correct file name used below (cache-bust query) -->
+                <img src="/assets/1764517251287.jpg?v=2" alt="Dharmesh Annapure" style="width:100%;height:100%;object-fit:cover;display:block" />
+              </div>
+              <div aria-hidden="true" style="position:absolute;left:-12px;top:-12px;width:100px;height:100px;border-radius:20px;filter:blur(22px);opacity:0.22;background:linear-gradient(90deg,var(--accent),var(--accent-2));z-index:-1"></div>
+            </div>
 
-        <div class="meta">Top outcomes</div>
-        <ul style="margin:10px 0;color:var(--muted);padding-left:20px">
-          <li>1M+ follower viral growth playbooks</li>
-          <li>DM funnels that convert followers → leads</li>
-          <li>₹50k+ campaign strategy & brand deals</li>
-        </ul>
-      </aside>
+            <div>
+              <div style="font-weight:700">Dharmesh Annapure</div>
+              <div class="meta">Creator Growth & AI Automation — Mumbai</div>
+              <div class="meta" style="margin-top:6px">Managed creators, brands & AI projects</div>
+            </div>
+          </div>
 
-    </div>
-  </header>
+          <hr style="margin:14px 0;border:0;border-top:1px solid rgba(255,255,255,0.08)" />
+          <div class="meta">Top outcomes</div>
+          <ul style="margin:10px 0;color:var(--muted);padding-left:20px">
+            <li>1M+ follower viral growth playbooks</li>
+            <li>DM funnels that convert followers → leads</li>
+            <li>₹50k+ campaign strategy & brand deals</li>
+          </ul>
+        </aside>
+      </div>
+    </header>
 
-  <section id="services">
-    <h2>How I Help</h2>
-    <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
-      <div class="service"><h3>AI Growth Blueprints</h3><p class="meta">From hooks to automation engines.</p></div>
-      <div class="service"><h3>Influencer Monetization</h3><p class="meta">₹50k+ brand collaborations.</p></div>
-      <div class="service"><h3>MSME Digital Upgrade</h3><p class="meta">WhatsApp funnels & Reels GTM.</p></div>
-      <div class="service"><h3>AI Product Launch</h3><p class="meta">Creator-first distribution.</p></div>
-    </div>
-  </section>
+    <section id="services">
+      <h2>How I Help</h2>
+      <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="service"><h3>AI Growth Blueprints</h3><p class="meta">From hooks to automation engines.</p></div>
+        <div class="service"><h3>Influencer Monetization</h3><p class="meta">₹50k+ brand collaborations.</p></div>
+        <div class="service"><h3>MSME Digital Upgrade</h3><p class="meta">WhatsApp funnels & Reels GTM.</p></div>
+        <div class="service"><h3>AI Product Launch</h3><p class="meta">Creator-first distribution.</p></div>
+      </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
+    <section id="case-studies">
+      <h2>Case Studies</h2>
+      <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">
+        <div class="case"><strong>Top AI Influencer</strong><p class="meta" style="margin-top:8px">Grew to 1M+ followers using AI templates & viral hooks — 3× engagement in 90 days.</p></div>
+        <div class="case"><strong>Brandovate Digital</strong><p class="meta" style="margin-top:8px">Executed 10+ high-value campaigns; improved onboarding & conversions.</p></div>
+      </div>
+    </section>
 
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST"
-          style="display:grid;gap:10px;max-width:700px">
-      <input name="name" placeholder="Your name" required
-             style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white">
-      <input name="email" placeholder="Email" required
-             style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white">
-      <textarea name="message" placeholder="Your message" required
-                style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white;min-height:120px"></textarea>
-      <button type="submit" class="btn-primary" style="border:0;cursor:pointer">Send Message</button>
-    </form>
+    <section id="contact">
+      <h2>Contact</h2>
+      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" style="display:grid;gap:10px;max-width:700px">
+        <input name="name" placeholder="Your name" required style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white">
+        <input name="email" placeholder="Email" required style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white">
+        <textarea name="message" placeholder="Your message" required style="padding:12px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:white;min-height:120px"></textarea>
+        <button type="submit" class="btn-primary" style="border:0;cursor:pointer">Send Message</button>
+      </form>
 
-    <p class="meta" style="margin-top:12px">
-      LinkedIn: <a href="https://www.linkedin.com/in/dharmmesh-annapure-1a62862b?utm_source=share" target="_blank">View profile</a>
-    </p>
-  </section>
+      <p class="meta" style="margin-top:12px">LinkedIn: <a href="https://www.linkedin.com/in/dharmmesh-annapure-1a62862b?utm_source=share" target="_blank">View profile</a></p>
+    </section>
 
-  <footer>© 2025 Dharmesh Annapure — Creator Growth & Automations</footer>
+    <footer>© 2025 Dharmesh Annapure — Creator Growth & Automations</footer>
+  </main>
 
-</main>
+  <a class="sticky-wa" href="https://wa.me/919136090098?text=Hi%20Dharmesh%2C%20I%27m%20interested%20in%20a%20campaign" target="_blank" rel="noopener" aria-label="WhatsApp">📲</a>
+
+  <script>
+    (function(){
+      const h = document.querySelector('h1');
+      const phrases = [
+        'Creator Growth + AI Automations — Reels, Brand Deals & DM Funnels',
+        'AI Growth Blueprints for Creators',
+        'Turn Followers into Customers with DM Funnels'
+      ];
+      let i = 0;
+      function rotate(){ h.style.opacity = 0; setTimeout(()=>{ h.textContent = phrases[i++ % phrases.length]; h.style.opacity = 1; }, 420); }
+      setInterval(rotate, 4200);
+    })();
+  </script>
 </body>
 </html>
